@@ -1,5 +1,7 @@
 # 📊 Dashboard de Métricas — Desafio Técnico Stalse
 
+ **Deploy (Vercel):** https://stalse-metrics-dashboard-om5b.vercel.app/
+
 Aplicação web construída com Next.js que exibe indicadores de marketing, gráfico de investimento por canal e tabela de campanhas com filtro por status sincronizado à URL.
 
 ## Tecnologias
@@ -26,7 +28,7 @@ Aplicação web construída com Next.js que exibe indicadores de marketing, grá
 cd dashboard-metricas
 npm install
 npm run dev
-# aplicação disponível em http://localhost:3000
+
 ```
 
 ## Build, start e lint
@@ -40,7 +42,7 @@ npm run lint
 A aplicação pode ser executada localmente ou publicada via Vercel.
 
 Após o deploy, acesse:
-👉 https://SEU-LINK-VERCEL.vercel.app
+👉 https://stalse-metrics-dashboard-om5b.vercel.app/
 
 ## Estrutura principal
 - [app/page.tsx](./app/page.tsx): página principal com cartões, gráfico, filtro e tabela
