@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📊 Dashboard de Métricas — Desafio Técnico Stalse
 
-## Getting Started
+Aplicação web construída com Next.js que exibe indicadores de marketing, gráfico de investimento por canal e tabela de campanhas com filtro por status sincronizado à URL.
 
-First, run the development server:
+## Tecnologias
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Recharts
 
+## Recursos
+- Cartões com métricas: total de clientes, receita mensal e taxa de conversão
+- Gráfico de barras (Recharts) agregando investimento por canal
+- Tabela de campanhas com destaque de status
+- Filtro por status com sincronização de URL (`?status=Ativa|Pausada`) e deep-linking
+- API interna que simula dados de métricas e campanhas
+
+## Requisitos
+- Node.js 18+ recomendado
+- npm (ou outro gerenciador de pacotes equivalente)
+
+## Instalação e execução
 ```bash
+# dentro do repositório
+cd dashboard-metricas
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# aplicação disponível em http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build, start e lint
+```bash
+npm run build
+npm run start
+npm run lint
+```
+## Deploy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+A aplicação pode ser executada localmente ou publicada via Vercel.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Após o deploy, acesse:
+👉 https://SEU-LINK-VERCEL.vercel.app
 
-## Learn More
+## Estrutura principal
+- [app/page.tsx](./app/page.tsx): página principal com cartões, gráfico, filtro e tabela
+- [app/api/data/route.ts](./app/api/data/route.ts): endpoint que retorna métricas e campanhas simuladas
+- [components/](./components): componentes de UI (MetricCard, MetricsChart, CampaignTable, Filter)
+- [app/globals.css](./app/globals.css): estilos globais e variáveis de tema (inclui `--brand`)
 
-To learn more about Next.js, take a look at the following resources:
+## API e dados
+- Endpoint: `GET /api/data`
+- Resposta: contém `metrics` (totalClients, monthlyRevenue, conversionRate) e lista de `campaigns` com `id`, `name`, `channel`, `status` e `investment`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Filtro por status
+- Componente [Filter](./components/Filter.tsx) controla o estado de `status`
+- Estado sincronizado com a URL via `useSearchParams` e `router.replace`
+- Valores aceitos: `Todas`, `Ativa`, `Pausada`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Customização visual
+- Ajuste a cor de marca (`--brand`) em [app/globals.css](./app/globals.css)
+- Tailwind 4 está habilitado via `@import "tailwindcss";` e `@theme inline`
 
-## Deploy on Vercel
+## Scripts disponíveis
+- `npm run dev`: ambiente de desenvolvimento
+- `npm run build`: build de produção
+- `npm run start`: inicializa servidor de produção
+- `npm run lint`: executa ESLint
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Referências de código
+[page.tsx](./app/page.tsx)
+[route.ts](./app/api/data/route.ts)
+[MetricsChart.tsx](./components/MetricsChart.tsx)
+[CampaignTable.tsx](./components/CampaignTable.tsx)
+[Filter.tsx](./components/Filter.tsx)
