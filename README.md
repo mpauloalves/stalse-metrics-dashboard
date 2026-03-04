@@ -42,7 +42,7 @@ npm run lint
 A aplicação pode ser executada localmente ou publicada via Vercel.
 
 Após o deploy, acesse:
-👉 https://stalse-metrics-dashboard-om5b.vercel.app/
+👉 http://localhost:3000
 
 ## Estrutura principal
 - [app/page.tsx](./app/page.tsx): página principal com cartões, gráfico, filtro e tabela
