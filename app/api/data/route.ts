@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 
 
 export async function GET() {
+
+    //simula erro
  /* return Response.json(
     { message: "Erro simulado" },
     { status: 500 }
